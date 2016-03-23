@@ -1,0 +1,98 @@
+
+<div class="panel panel-primary">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center">图书管理系统</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" >
+                <form name="testForm" role="form" ng-controller="loginCtrl" class="form-horizontal"  novalidate>
+                    <div class="form-group  has-feedback">
+                        <label class="col-md-2 control-label">
+                            用户名：
+                        </label>
+                        <div class="col-md-4">
+                            <input type="email" ng-blur="" name="email1" class="form-control"  required email-value placeholder="推荐使用126邮箱" ng-model="email1">{{email1}}
+                            <span style="color:red" ng-show="testForm.email1.$dirty && testForm.email1.$invalid">
+                            <span ng-show="testForm.email1.$error.required">Email is required.</span>
+                            <span ng-show="testForm.email1.$error.email">Invalid email address.</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group  has-feedback">
+                        <label class="col-md-2 control-label">
+                            密码：
+                        </label>
+                        <div class="col-md-4">
+                            <input type="password" name="password" class="form-control" required ensure-unique placeholder="只能是数字、字母、下划线"
+                                   ng-pattern="/^[a-zA-Z]*\d$/"  ng-model="password"/>{{password}}
+                            <span style="color:red" ng-show="testForm.password.$dirty && testForm.password.$invalid">
+                                <span ng-show="testForm.password.$error.required">password is required!</span>
+                                <span ng-show="testForm.password.$error.pattern">Invalid password pattern.</span>
+                                <span ng-show="testForm.password.$error.unique">you must be input wrong user or psw!</span>
+                            </span>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input  type="submit"  ui-sref="booklist({bookType:0})" ng-click="submitForm(email1,password)" ng-disabled="unLogin" class="btn btn-primary btn-md" value="登录"/>
+                           <!--<button class="btn btn-default btn-lg"  ng-click="setFormData()">注册</button>-->
+                            <button ui-sref="register" class="btn btn-primary btn-md">注册</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+
+        $('#validateForm').validate({
+            errorElement:'span',
+            errorClass:'help-block',
+            onfocusout:function(element){
+                $(element).valid();
+            },
+            rules:{
+                email: {
+                    required:true,
+                    email:true
+                },
+                password: {
+                    required:true,
+                    minlength:6
+                }
+            },
+            message: {
+                email: {
+                    required:"用户名不能为空",
+                    email: "输入正确的email地址"
+                },
+                password: {
+                    required: "密码不能为空",
+                    minlength: "密码长度不能少于6位"
+                }
+            },
+            highlight: function(element){
+                $(element).closest('.form-group').removeClass('has-error');
+            },
+            success: function(label){
+                label.closest('.form-group').removeClass('has-error');
+                label.remove();
+
+            },
+            errorPlacement: function(error,element){
+                element.parent('div').append(error);
+            },
+            submitHandler : function(form) {
+                form.submit();
+            }
+        });
+
+    });
+</script>-->

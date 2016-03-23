@@ -1,0 +1,95 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="panel-title">新增书籍</div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <form id="addBook" class="form-horizontal" role="form" name="myForm" ng-controller="PreserveCtrl">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">
+                            书编号：
+                        </label>
+                        <div class="col-md-10">
+                            <input type="text" name="bookId" class="form-control" placeholder="请输入书名" required ng-model="book.bookId">
+                            <span class="glyphicon glyphicon-ok form-control-feedback"
+                                  ng-show="myForm.bookId.$dirty && myForm.bookId.$valid"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">
+                            书名：
+                        </label>
+                        <div class="col-md-10">
+                            <input type="text" name="bookName" class="form-control" placeholder="请输入书名" required ng-model="book.bookName">
+                            <span class="glyphicon glyphicon-ok form-control-feedback"
+                                  ng-show="myForm.bookName.$dirty && myForm.bookName.$valid"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">
+                            类型：
+                        </label>
+                        <div class="col-md-10">
+                            <select class="form-control" name="bookType" ng-model="book.bookType" required>
+                                <option>Web Frameworks</option>
+                                <option>Robotic & Programming</option>
+                                <option>Programming language</option>
+                            </select>
+                            <span class="glyphicon glyphicon-ok form-control-feedback"
+                                    ng-show="myForm.bookType.$dirty && myForm.bookType.$valid"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">
+                            作者：
+                        </label>
+                        <div class="col-md-10">
+                            <input type="text" name="bookAuthor" ng-model="book.bookAuthor" required class="form-control" placeholder="请输入作者名">
+                            <span class="glyphicon glyphicon-ok form-control-feedback"
+                                    ng-show="myForm.bookAuthor.$dirty && myForm.bookAuthor.$valid"></span>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">
+                            价钱：
+                        </label>
+                        <div class="col-md-10">
+                            <input type="text" name="bookPrice" class="form-control" placeholder="请输入书价格" required ng-model="book.bookPrice">
+                            <span class="glyphicon glyphicon-ok form-control-feedback"
+                                  ng-show="myForm.bookPrice.$dirty && myForm.bookPrice.$valid"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">
+                            封面：
+                        </label>
+                        <div class="col-md-10">
+                            <input type="text" name="bookCover" class="form-control" placeholder="请输入书封面" required ng-model="book.bookCover">
+                            <span class="glyphicon glyphicon-ok form-control-feedback"
+                                  ng-show="myForm.bookCover.$dirty && myForm.bookCover.$valid"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">
+                            概览：
+                        </label>
+                        <div class="col-md-10">
+                            <input type="textArea"name="bookDescription" class="form-control" placeholder="请输入本书的概览" required ng-model="book.bookDescription">
+                            <span class="glyphicon glyphicon-ok form-control-feedback"
+                                  ng-show="myForm.bookDescription.$dirty && myForm.bookDescription.$valid"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <a ng-click="goPreserve()" class="btn btn-success" ng-disabled="form.$invalid">保存</a>
+                            <a ui-sref="booklist({bookType:0})" class="btn btn-primary">取消</a>
+                            <button class="btn btn-default" ng-click="setFormData()">清空表单</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
